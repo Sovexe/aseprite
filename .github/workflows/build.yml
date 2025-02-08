@@ -118,7 +118,7 @@ jobs:
 
     - name: Upload Windows Build Artifact
       if: runner.os == 'Windows'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: aseprite-windows-package
         path: build/aseprite-windows.zip
