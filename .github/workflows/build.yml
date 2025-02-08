@@ -113,4 +113,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: aseprite-${{ matrix.os }}-${{ matrix.build_type }}-${{ matrix.ui }}-${{ matrix.scripting }}
-        path: ${{ runner.os == 'Windows' ? 'build\\bin\\aseprite.exe' : 'build/bin/aseprite' }}
+        path: "${{ runner.os == 'Windows' ? 'build\\bin\\aseprite.exe' : 'build/bin/aseprite' }}"
+
