@@ -111,14 +111,14 @@ jobs:
         $XVFB bash run-tests.sh
     - name: Upload Windows Build Artifact
       if: runner.os == 'Windows'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: aseprite-${{ matrix.os }}-${{ matrix.build_type }}-${{ matrix.ui }}-${{ matrix.scripting }}
         path: build\bin\aseprite.exe
 
     - name: Upload Non-Windows Build Artifact
       if: runner.os != 'Windows'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: aseprite-${{ matrix.os }}-${{ matrix.build_type }}-${{ matrix.ui }}-${{ matrix.scripting }}
         path: build/bin/aseprite
