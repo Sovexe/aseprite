@@ -109,16 +109,16 @@ jobs:
         export ASEPRITE=$PWD/build/bin/aseprite
         cd tests
         $XVFB bash run-tests.sh
+    - name: Package Windows Build
+      if: runner.os == 'Windows'
+      shell: bash
+      run: |
+        cd build
+        zip -r aseprite-windows.zip bin
+
     - name: Upload Windows Build Artifact
       if: runner.os == 'Windows'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
-        name: aseprite-${{ matrix.os }}-${{ matrix.build_type }}-${{ matrix.ui }}-${{ matrix.scripting }}
-        path: build\bin\aseprite.exe
-
-    - name: Upload Non-Windows Build Artifact
-      if: runner.os != 'Windows'
-      uses: actions/upload-artifact@v4
-      with:
-        name: aseprite-${{ matrix.os }}-${{ matrix.build_type }}-${{ matrix.ui }}-${{ matrix.scripting }}
-        path: build/bin/aseprite
+        name: aseprite-windows-package
+        path: build/aseprite-windows.zip
